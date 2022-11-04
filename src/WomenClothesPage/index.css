@@ -1,0 +1,10 @@
+.backPage {
+  max-width: fit-content;
+  height: fit-content;
+  background-color: rgb(202, 145, 145);
+}
+.logoClothes {
+  height: 400px;
+  width: 400px;
+  background-image: url(clothes.jpg);
+}

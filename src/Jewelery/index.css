@@ -1,0 +1,25 @@
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 10px;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+.mainContainerJewelery {
+  height: 300px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jeweleryiImageTitleItem {
+  text-align: center;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+}
+.margin {
+  margin: 10px;
+}
