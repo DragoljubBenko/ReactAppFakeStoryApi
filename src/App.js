@@ -4,17 +4,27 @@ import { Link, Outlet } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "../src/index.css";
 import Footer from "./Footer";
+// import Electronics from "./ElectronicsPage/Electronics";
+// import MenClothesPage from "./MenClothesPage/MenClothesPagePage";
+// import WomenClothesPage from "./WomenClothesPage/WomenClothesPage";
 function App() {
   const [post, setPostArray] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json, "test");
+        setLoading(false);
+
         setPostArray(json);
       });
   }, []);
+  if (loading) {
+    return <div className="mainContainerJewelery">...Almoust there ♥</div>;
+  }
 
   return (
     <>
@@ -62,11 +72,12 @@ function App() {
               <div className="category">{item.category}</div>
               <div className="description">{item.description}</div>
               <img className="img" src={item.image} alt="" />
-              <div className="price">{item.price}</div>{" "}
+              <div className="price">Price: {item.price} $</div>{" "}
             </div>
           );
         })}
       </div>
+
       <Footer />
     </>
   );

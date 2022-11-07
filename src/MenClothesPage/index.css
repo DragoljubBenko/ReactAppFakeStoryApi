@@ -1,19 +1,19 @@
-.mainContainerJewelery {
+.mainContainerMenClothes {
   display: flex;
   flex-wrap: wrap;
   overflow-x: scroll;
   height: 100vh;
   width: 100vw;
 }
-
-.jeweleryBox {
+.menClothesItem {
   border: 1px solid black;
   margin: 20px;
   height: 500px;
   width: 500px;
   background-color: rgb(200, 215, 179);
 }
-.jeweleryID {
+
+.menClothesItemID {
   justify-content: center;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@
   height: 20px;
   width: 500px;
 }
-.jeweleryTitle {
+.menClothesItemTitle {
   margin: 1 px;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
@@ -33,11 +33,11 @@
   height: 120px;
   width: 500px;
 }
-.jeweleryiImage {
+.menClothesItemImg {
   height: 200px;
   width: 200px;
 }
-.jeweleryFooter {
+.footerContainerMenClothes {
   width: 100%;
   height: 150px;
   margin: 60px;

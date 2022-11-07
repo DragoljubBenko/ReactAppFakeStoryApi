@@ -1,49 +1,62 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./index.css";
+import "../WomenClothesPage/index.css";
 // import logo from "../ClothesPage/clothes.jpg";
 function WomenClothesPage() {
   const [womenClothes, setWomenClothes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    // treba da se najde koj e patekata za WOMEN clothes
-    fetch("https:fakestoreapi.com/products/category/women's clothing")
+    setLoading(true);
+
+    fetch("https://fakestoreapi.com/products/category/women's clothing")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json, "vtorTest");
+        setLoading(false);
+
         setWomenClothes(json);
       });
   }, []);
   const { ClothesPageId } = useParams();
   console.log(ClothesPageId);
+  if (loading) {
+    return <div className="mainContainerJewelery">...Almoust there ♥</div>;
+  }
   return (
     <div>
+      <div>
+        <h1>WOMEN'S Clothes Page</h1>{" "}
+      </div>
       <div className="mainContainerWomenClothes">
         {womenClothes.map((item) => {
           return (
-            <div>
-              <div className="item"> {item}</div>
-              <img src={item.image} alt="" />
+            <div className="womenClothesItem">
+              <div className="womenClothesItemID"> {item.id}</div>
+              <div className="womenClothesTitle"> {item.title}</div>
+              <div className="womenClothesDesc"> {item.description}</div>
+
+              <img className="womenClothesItemImg" src={item.image} alt="" />
+
+              <div className="womenClothesPrice">Price: {item.price} $</div>
             </div>
           );
-        })}
-      </div>{" "}
-      <div className="backPage"> I came to WOMEN'S Clothes Page </div>
-      <div className="logoClothes"></div>
-      {/* <img src={logo} alt="Logo" /> */}
-      <div>
-        Click here to go BACK All PRODUCTS (home) page ??{" "}
-        <Link to={"/"}>
-          <button>Back to mainApp</button>
-        </Link>{" "}
-      </div>
-      {
-        <div>
-          Click here to go Jewelery Page
-          <Link to={"/Jewelery"}>
-            <button>here</button>
+        })}{" "}
+        {/* <div className="logoClothes"></div> */}
+        {/* <img src={logo} alt="Logo" /> */}
+        <div className="footerContainerWomenClothes">
+          {" "}
+          <Link to={"/"}>
+            <button> Click here to go to mainApp?</button>
           </Link>{" "}
+          {
+            <div className="moveToJewelery">
+              <Link to={"/Jewelery"}>
+                <button> Click here to go Jewelery Page?</button>
+              </Link>{" "}
+            </div>
+          }{" "}
         </div>
-      }
+      </div>
     </div>
   );
 }

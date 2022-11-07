@@ -85,7 +85,10 @@ h1 {
   align-items: center;
 }
 .footer {
-  color: rgb(67, 105, 30);
+  margin-left: 333px;
+  padding: 10px;
+  justify-content: center;
+  color: rgb(70, 42, 42);
   font-family: "Courier New", Courier, monospace;
   text-align: center;
 

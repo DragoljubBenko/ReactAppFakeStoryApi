@@ -1,10 +1,54 @@
-.backPage {
-  max-width: fit-content;
-  height: fit-content;
-  background-color: rgb(202, 145, 145);
+.mainContainerWomenClothes {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+  height: 100vh;
+  width: 100vw;
 }
-.logoClothes {
-  height: 400px;
-  width: 400px;
-  background-image: url(clothes.jpg);
+.womenClothesItem {
+  border: 1px solid black;
+  margin: 20px;
+  height: 500px;
+  width: 500px;
+  background-color: rgb(208, 215, 186);
+}
+.womenClothesItemID {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 3px;
+  height: 20px;
+  width: 500px;
+}
+.womenClothesDesc {
+  height: 100px;
+  width: 500px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  overflow: auto;
+}
+.womenClothesTitle {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 500px;
+}
+.womenClothesItemImg {
+  width: 200px;
+  height: 150px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.womenClothesPrice {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: red;
+}
+.footerContainerWomenClothes {
+  width: 100%;
+  height: 100px;
+  margin: 40px;
 }

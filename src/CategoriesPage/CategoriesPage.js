@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "../CategoriesPage/index.css";
 // import ReactDOM from "react-dom/client";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import logo from "../AccesoriesPage/OIP.jpg";
@@ -8,14 +8,19 @@ import "./index.css";
 
 function AccesoriesPage() {
   const [postNav, setNavPostArray] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     fetch("https:fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json, "vtorTest");
+        setLoading(false);
         setNavPostArray(json);
       });
   }, []);
+  if (loading) {
+    return <div className="mainContainerJewelery">...Almoust there ♥</div>;
+  }
   return (
     <div className="bodyCategories">
       <div>
@@ -47,12 +52,18 @@ function AccesoriesPage() {
         </div>{" "}
       </div>
       <div className="itemButtons">
-        <button className="Categories">Search for Electronics</button>
+        <Link to={"/Electronics"}>
+          <button className="Categories">Search for Electronics</button>
+        </Link>{" "}
         <Link to={"/Jewelery"}>
           <button className="Categories">Search for Jewelery</button>
         </Link>{" "}
-        <button className="Categories">Search for Men's Clothing</button>
-        <button className="Categories">Search for Women's Clothing</button>
+        <Link to={"/MenClothes"}>
+          <button className="Categories">Search for Men's Clothing</button>
+        </Link>{" "}
+        <Link to={"/WomenClothes"}>
+          <button className="Categories">Search for Women's Clothing</button>
+        </Link>{" "}
       </div>
       <div className="styleHeadlineButton">
         Click here to go BACK All PRODUCTS (home) page ??{" "}

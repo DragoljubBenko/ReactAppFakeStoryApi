@@ -1,37 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../MenClothesPage/index.css";
 function MenClothesPage() {
   const [menClothes, setMenClothes] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    // treba da se najde koj e patekata za MEN clothes
-    fetch("https:fakestoreapi.com/products/category/men's clothing")
+    setLoading(true);
+    fetch("https://fakestoreapi.com/products/category/men's clothing")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json, "vtorTest");
+        setLoading(false);
         setMenClothes(json);
       });
   }, []);
-
+  if (loading) {
+    return <div className="mainContainerMenClothes">...Almoust there ♥</div>;
+  }
   return (
-    <div>
+    <>
+      {" "}
+      <p>
+        <h1>MenClothesPage</h1>
+      </p>
       <div className="mainContainerMenClothes">
         {menClothes.map((item) => {
           return (
-            <div>
-              <div className="item"> {item}</div>
-              <img src={item.image} alt="" />
+            <div className="menClothesItem">
+              {/* <div className=" menClothesItemID"> {item.id}</div> */}
+              <div className="menClothesItemTitle"> {item.title}</div>
+              <img className="menClothesItemImg" src={item.image} alt="" />
+
+              <div className="menClothesItemTitle"> {item.description}</div>
+              <div className="priceMenClothes">Price: {item.price} $</div>
             </div>
           );
-        })}
-      </div>{" "}
-      MenClothesPage
-      <div>
-        Click here to go BACK All PRODUCTS (home) page ??{" "}
-        <Link to={"/"}>
-          <button>Back to mainApp</button>
-        </Link>{" "}
+        })}{" "}
+        <div className="footerContainerMenClothes">
+          {" "}
+          <Link to={"/"}>
+            <button>Click here to go to mainApp?</button>
+          </Link>{" "}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
